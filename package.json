@@ -1,8 +1,7 @@
 {
-  "name": "qoar-ai-photo-studio",
+  "name": "qcar-photo",
+  "version": "0.0.1",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,8 +13,10 @@
     "@google/genai": "^1.17.0"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "vite": "^5.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
   }
 }
