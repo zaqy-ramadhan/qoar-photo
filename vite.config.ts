@@ -1,13 +1,20 @@
-import { defineConfig } from 'vite'
+import path from 'path';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react'
-import path from 'path'
 
-export default defineConfig({
-  base: "./", // penting biar CSS/JS bisa load di Vercel
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './'), // biar `@/components/...` jalan
-    },
-  },
-})
+export default defineConfig(({ mode }) => {
+    const env = loadEnv(mode, '.', '');
+    return {
+      define: {
+        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+      },
+      base: "./",
+      plugins: [react()],
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, '.'),
+        }
+      }
+    };
+});
